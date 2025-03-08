@@ -51,4 +51,22 @@ def show_dashboard():
 
     if games is not None:
         st.subheader("Basketball Game Results")
-     
+        
+        # Display each game's data in a formatted way
+        for game in games:
+            st.write(f"**{game['Game']}**")
+            st.write(f"Away Team: {game.get('Away Team', 'N/A')}")
+            st.write(f"Home Team: {game.get('Home Team', 'N/A')}")
+            st.write(f"Spread Away: {game.get('Spread Away', 'N/A')}")
+            st.write(f"Spread Home: {game.get('Spread Home', 'N/A')}")
+            st.write(f"Over/Under: {game.get('Over/Under', 'N/A')}")
+            st.write(f"Predicted Total: {game.get('Predicted Total', 'N/A')}")
+            st.write(f"Torvik Prediction: {game.get('Torvik Prediction', 'N/A')}")
+            st.write("---")
+
+    st.sidebar.header("Settings")
+    st.sidebar.write("Customize how the data is displayed.")
+
+if __name__ == "__main__":
+    show_dashboard()
+
